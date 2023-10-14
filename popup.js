@@ -1,27 +1,10 @@
-$(function() {
-    $('#tree').jstree({
-      'core': {
-        'data': [
-          {
-            "text": "Google",
-            "data": {"url": "https://www.google.com"},
-            "children": []
-          },
-          {
-            "text": "Bing",
-            "data": {"url": "https://www.bing.com"},
-            "children": []
-          }
-          // Adicione mais nós conforme necessário
-        ]
+document.getElementById('showSidebar').addEventListener('click', function() {
+  chrome.tabs.query({active: true, currentWindow: true}, function(tabs) {
+      if (tabs[0]) {
+          chrome.scripting.executeScript({
+              target: {tabId: tabs[0].id},
+              files: ['sidebar.js']
+          });
       }
-    });
-  
-    $('#tree').on("select_node.jstree", function(e, data) {
-      var url = data.node.data.url;
-      if(url) {
-        chrome.tabs.create({url: url});
-      }
-    });
   });
-  
+});

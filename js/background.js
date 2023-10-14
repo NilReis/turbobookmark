@@ -1,7 +1,9 @@
-$('#tree').on("select_node.jstree", function(e, data) {
-    var url = data.node.data.url;
-    if(url) {
-      chrome.tabs.update({url: url});
-    }
-  });
-  
+self.addEventListener('install', function(event) {
+  // Perform install steps
+});
+
+self.addEventListener('activate', function(event) {
+  // Perform activate steps
+});
+
+// Your other code here
