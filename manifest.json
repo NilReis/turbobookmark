@@ -1,0 +1,13 @@
+{
+  "manifest_version": 3,
+  "name": "Extensão jsTree",
+  "version": "1.0",
+  "description": "Usa jsTree para abrir páginas da web",
+  "action": {
+     "default_popup": "popup.html"
+  },
+  "permissions": ["activeTab"],
+  "background": {
+    "service_worker": "js/background.js"
+  }
+}
